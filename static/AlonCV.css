@@ -2,6 +2,13 @@
 *{
     box-sizing: border-box;
 }
+ body {
+    background-image: url("cvbluebackground.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    font-family: "3ds Light";
+}
 
 .row:after{
     content : "";
@@ -32,46 +39,44 @@
 
 
   .menu {
-    background-color: rgb(225, 225, 225);
+    position: fixed;
+    top: 0px;
     padding: 2%;
     /*height: 5vw;*/
-      width:25%;
-      margin-left: 37.5%;
-      margin-right: -25vw;
-      align-self :center;
-      margin-bottom: -2.5vw;
-      text-align:center;
+    width:100%;
+    align-self :center;
+    text-align:center;
+    background: rgb(225, 225, 225) url("backround image.jpg") center;
+    opacity: 70%;
   }
 
   .main1 {
-     background-color: rgb(255, 255, 255);
-    padding: 9%;
+     background-color:transparent;
+    padding: 1%;
     /*height: 10vw;*/
        width: 75%;
        margin-top: 2%;
-      margin-left: 12.5%;
+       margin-left: 12.5%;
        align-self :center ;
        text-align:center;
-       border: 0.1vw solid black;
-
+      color: white;
   }
 
     .main2{
     background-color: rgb(255, 255, 255);
-    padding: 9%;
+    padding: 1%;
     /*height: 8vw;*/
        width: 75%;
        margin-top: 2%;
-        margin-left: 12.5%;
+       margin-left: 12.5%;
        align-self :center ;
        text-align:center;
        border: 0.1vw solid black;
-
   }
 
     .main3{
        background-color: rgb(255, 255, 255);
-    padding: 9%;
+    padding: 1%;
     /*height: 14vw;*/
        width: 75%;
        margin-top: 2%;
@@ -82,7 +87,7 @@
   }
     .main4{
     background-color: rgb(255, 255, 255);
-    padding: 9%;
+    padding: 1%;
     /*height: 10vw;*/
        width: 75%;
        margin-top: 2%;
@@ -93,7 +98,7 @@
   }
      .main5{
     background-color: rgb(255, 255, 255);
-    padding: 9%;
+    padding: 1%;
     /*height: 10vw;*/
        width: 75%;
        margin-top: 2%;
@@ -105,13 +110,8 @@
      @keyframes hoverMe {
     0% {background-color: lightblue;}
     100% {background-color: lightgoldenrodyellow;}
+}
 
-}
-    .main1:hover {
-    animation-name: hoverMe;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-}
     .main2:hover {
     animation-name: hoverMe;
     animation-duration: 2s;
