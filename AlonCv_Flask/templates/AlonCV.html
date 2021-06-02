@@ -7,7 +7,14 @@
         <script src="{{ "/static/js/AlonCV.js" }}"></script>
     </head>
     <body>
-
+<header style="text-align: left">
+    {% if session.get('loggedIn')==False or 'loggedIn' not in session %}
+        <h2 style="color:blueviolet">Guest</h2>
+    {% endif %}
+    {% if session.get('loggedIn')==True %}
+        <h2 style="color: blueviolet"> Hello {{ session['username'] }}</h2>
+    {% endif %}
+</header>
          <div class="row">
              <div class="col-1 menu" style="color: aliceblue">
                  <a href="#About" style="color:white">ABOUT </a>|
@@ -78,9 +85,6 @@
              <li><a href="{{ url_for('hello_assignment8') }}">Hobbies</a></li>
                      {% block content %}
                      {% endblock %}
-              <li><a href="{{ url_for('hello_assignment9') }}">ass__9</a></li>
-                     {% block content9 %}
-                     {% endblock %}
              </div>
 
              <div id="Contact" class="col-2 right main5"
@@ -97,6 +101,9 @@
                      <input type="email" id="lemail" name="lemail"><br>
                      <button type="submit" id="fcf-button" name="submit" onclick="myFunction()">Send</button>
                  </form>
+                 <li><a href="{{ url_for('hello_assignment9') }}">Log In</a></li>
+                     {% block content9 %}
+                     {% endblock %}
              </div>
 
          </div>

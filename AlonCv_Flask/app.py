@@ -2,6 +2,7 @@ from flask import Flask, redirect, url_for, render_template, request, session
 from flask import render_template
 
 app = Flask(__name__)
+app.secret_key = '1704'
 
 
 @app.route('/', methods=['GET', 'POST', 'DELETE', 'PUT'])
@@ -20,6 +21,7 @@ def hello_assignment8():
                            user={'name': "Alon Levin"},
                            hobbies=['Football', 'E-Games', 'Climbing'])
 
+
 UsersList = {
     "Rony89": {"firstName": "Rony", "lastName": "Levin", "email": "Ronyle89@gmail.com"},
     "Gaby63": {"firstName": "Gaby", "lastName": "Levin", "email": "Gaby1063@gmail.com"},
@@ -36,7 +38,8 @@ def hello_assignment9():
             if "username" in request.args:
                 UserInList = request.args["username"]
                 if UserInList in UsersList and UserInList != '':
-                    return render_template("assignment9.html", username=UserInList, users=UsersList[UserInList], found=True, search=True)
+                    return render_template("assignment9.html", username=UserInList, users=UsersList[UserInList],
+                                           found=True, search=True)
                 elif UserInList not in UsersList and UserInList != '':
                     return render_template("assignment9.html", found=False, search=True)
                 else:
@@ -44,6 +47,22 @@ def hello_assignment9():
             else:
                 return render_template("assignment9.html", search=False)
         else:
+            return render_template("assignment9.html")
+
+    elif request.method == 'POST':
+        if not session.get('loggedIn'):
+            if request.form['username'] not in UsersList:
+                UsersList[request.form['username']] = {"firstName": request.form['firstname'],
+                                                       "lastName": request.form['lastname'],
+                                                       "email": request.form['email']}
+                session['loggedIn'] = True
+                session['username'] = request.form['username']
+                return render_template("assignment9.html", exists=False)
+            if request.form['username'] in UsersList:
+                session['loggedIn'] = False
+                return render_template("assignment9.html", exists=True)
+        else:
+            session['loggedIn'] = False
             return render_template("assignment9.html")
 
 

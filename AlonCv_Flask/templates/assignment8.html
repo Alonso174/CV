@@ -7,6 +7,14 @@
 <body>
     {% extends "AlonCV.html" %}
       {% block content %}
+          <header style="text-align: center">
+    {% if session.get('loggedIn')==False or 'loggedIn' not in session %}
+        <h2 style="color:blueviolet">Guest</h2>
+    {% endif %}
+    {% if session.get('loggedIn')==True %}
+        <h2 style="color: blueviolet"> Hello {{ session['username'] }}</h2>
+    {% endif %}
+</header>
           {% if user %}
       <h1> {{ user.name | upper }} Hobbies </h1>
           {% else %}
