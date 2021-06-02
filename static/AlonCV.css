@@ -1,3 +1,4 @@
+<<<<<<< HEAD:static/AlonCV.css
 
 *{
     box-sizing: border-box;
@@ -129,3 +130,136 @@
     animation-duration: 2s;
     animation-iteration-count: 1;
 }
+=======
+
+*{
+    box-sizing: border-box;
+}
+ body {
+    background-image: url("cvbluebackground.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    font-family: "3ds Light";
+}
+
+.row:after{
+    content : "";
+    clear: both;
+    display: block;
+}
+    [class*="col-"]{
+    float: left;
+    padding: 12.5%;
+    }
+
+/* For desktop: */
+.col-1 {width: 15%;}
+.col-2 {width: 45%;}
+.col-3 {width: 70%;}
+.col-4 {width: 85%;}
+.col-5 {width: 100%;}
+
+  @media only screen and (max-width: 1000px){
+    /* For mobile phones: */
+    [class*="col-"]{
+     width: 100%;
+    }
+    [class="col-1"]{
+     height: 50%;
+    }
+  }
+
+
+  .menu {
+    position: fixed;
+    top: 0px;
+    padding: 2%;
+    /*height: 5vw;*/
+    width:100%;
+    align-self :center;
+    text-align:center;
+    background: rgb(225, 225, 225) url("backround image.jpg") center;
+    opacity: 70%;
+  }
+
+  .main1 {
+     background-color:transparent;
+    padding: 1%;
+    /*height: 10vw;*/
+       width: 75%;
+       margin-top: 2%;
+       margin-left: 12.5%;
+       align-self :center ;
+       text-align:center;
+      color: white;
+  }
+
+    .main2{
+    background-color: rgb(255, 255, 255);
+    padding: 1%;
+    /*height: 8vw;*/
+       width: 75%;
+       margin-top: 2%;
+       margin-left: 12.5%;
+       align-self :center ;
+       text-align:center;
+       border: 0.1vw solid black;
+  }
+
+    .main3{
+       background-color: rgb(255, 255, 255);
+    padding: 1%;
+    /*height: 14vw;*/
+       width: 75%;
+       margin-top: 2%;
+        margin-left: 12.5%;
+       align-self :center ;
+       text-align:center;
+       border: 0.1vw solid black;
+  }
+    .main4{
+    background-color: rgb(255, 255, 255);
+    padding: 1%;
+    /*height: 10vw;*/
+       width: 75%;
+       margin-top: 2%;
+        margin-left: 12.5%;
+       align-self :center ;
+       text-align:center;
+       border: 0.1vw solid black;
+  }
+     .main5{
+    background-color: rgb(255, 255, 255);
+    padding: 1%;
+    /*height: 10vw;*/
+       width: 75%;
+       margin-top: 2%;
+         margin-left: 12.5%;
+       alignment :center ;
+       text-align:center;
+       border: 0.1vw solid black;
+  }
+     @keyframes hoverMe {
+    0% {background-color: lightblue;}
+    100% {background-color: lightgoldenrodyellow;}
+}
+
+    .main2:hover {
+    animation-name: hoverMe;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}    .main3:hover {
+    animation-name: hoverMe;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}    .main4:hover {
+    animation-name: hoverMe;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}    .main5:hover {
+    animation-name: hoverMe;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+>>>>>>> 392ef6d46348805b984ee0da13b1553e4207f6fe:AlonCV.css
