@@ -5,6 +5,10 @@ app = Flask(__name__)
 app.secret_key = '1704'
 
 
+from assignment10.assignment10 import assignment10
+app.register_blueprint(assignment10)
+
+
 @app.route('/', methods=['GET', 'POST', 'DELETE', 'PUT'])
 def hello_world():
     return render_template('AlonCV.html')
