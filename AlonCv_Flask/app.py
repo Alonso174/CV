@@ -1,11 +1,12 @@
-from flask import Flask, redirect, url_for, render_template, request, session
+from flask import Flask, redirect, url_for, render_template, request, session, jsonify
 from flask import render_template
 
 app = Flask(__name__)
 app.secret_key = '1704'
 
 
-from assignment10.assignment10 import assignment10
+from assignment10.assignment10 import assignment10, interact_db
+
 app.register_blueprint(assignment10)
 
 
@@ -68,6 +69,32 @@ def hello_assignment9():
         else:
             session['loggedIn'] = False
             return render_template("assignment9.html")
+
+
+@app.route('/')
+@app.route('/assignment11')
+@app.route('/assignment11/users/')
+def users():
+    if request.method == 'GET':
+        query = "select * from users;"
+        query_result = interact_db(query, query_type='fetch')
+        if len(query_result) == 0:
+            return jsonify({'success': 'False', 'data': []})
+        else:
+            return jsonify({'success': 'True', 'data': query_result})
+    else:
+        return render_template('assignment10.html')
+
+
+@app.route('/assignment11/users/selected/', defaults={'email'})
+@app.route('/assignment11/users/selected/<email>')
+def select_user(email):
+    query = "select * from users where email = '%s';" % email
+    query_result = interact_db(query, query_type='fetch')
+    if len(query_result) == 0:
+        return jsonify('No such user')
+    else:
+        return jsonify({'success': 'True', 'data': query_result[0]})
 
 
 if __name__ == '__main__':
